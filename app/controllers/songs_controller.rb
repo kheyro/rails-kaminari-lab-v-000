@@ -1,10 +1,10 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.all
+    @songs = Song.all.page(params[:page])
   end
 
   def show
-    @song = Song.find(params[:id]).page(params[:page])
+    @song = Song.find(params[:id])
   end
 
   def new
